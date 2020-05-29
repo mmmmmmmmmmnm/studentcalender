@@ -1,39 +1,19 @@
 <html>
 		<head>
 			<title>Student Calender</title>
-			<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+			<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+			<meta content="width=device-width, initial-scale=1" name="viewport" />
+			<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+			<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+			<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
 			<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/style.css"/>
 			<script src="http://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
 		</head>
 		<body>
-		<nav class="navbar navbar-inverse">
-			<div class="container"
-			<div class="navbar-header">
-				<a class="navbar-brand" href="<?php echo base_url(); ?>"> studentCalender</a>
-			</div>
-			<div id="navbar">
-				<ul class="nav navbar-nav">
-
-					<li><a href="<?php echo base_url(); ?>">Home</a></li>
-					<li><a href="<?php echo base_url(); ?>about">About</a></li>
-					<?php if($this->session->userdata('logged_in')) : ?>
-					<li><a href="<?php echo base_url(); ?>events">Your events</a></li>
-					<?php endif; ?>
-
-				</ul>
-				<ul class="nav navbar-nav navbar-right">
-					<?php if(!$this->session->userdata('logged_in')) : ?>
-						<li><a href="<?php echo base_url(); ?>users/login">Login</a></li>
-						<li><a href="<?php echo base_url(); ?>users/register">Register</a></li>
-					<?php endif; ?>
-					<?php if($this->session->userdata('logged_in')) : ?>
-					<li><a href="<?php echo base_url(); ?>events/create">Create Event</a></li>
-					<li><a href="<?php echo base_url(); ?>users/logout">Logout</a></li>
-					<?php endif; ?>
-				</ul>
-			</div>
-		</nav>
+		<?php
+			$this->load->view('templates/navbar');
+		?>
 
 		<div class="container">
 			<?php if($this->session->flashdata('user_registered')): ?>
