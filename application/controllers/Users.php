@@ -6,7 +6,6 @@
 			parent::__construct();
 			$this->load->model('user_model');
 			$this->load->model('email_model', 'php_email');
-			//load session library
 			$this->load->helper('cookie');
 		}
 
@@ -192,7 +191,53 @@
 			echo json_encode($response);
 		}
 
-		public function reset_pass(){
+		public function process_securityq() {
+			$response = array('status' => false);
+			if( !is_null($this->input->post('email')) ) {
+				//$result = $this->db->get_where('users', array('email' => urldecode($this->input->post('email'))));
+				$result = $this->db->from('users')
+									->where('email', urldecode($this->input->post('email')))
+									->get()->result_array();
 
+				if(empty($result)){
+					$response['error'] = 'No account associated with this email address.';
+				} else{
+					// $response['result'] = $result;
+					if(urldecode($this->input->post('security_a')) == $result[0]['security_answer']) {
+						$response['status'] = true;
+					} else {
+						$response['error'] = 'Answer incorrect. Try again.';
+					}
+				}
+			}
+			echo json_encode($response);
+		}
+
+		public function reset_pass(){
+			$response = array('status' => false);
+			$response['post'] = $this->input->post();
+			if( !is_null($this->input->post('email')) ) {
+				//$result = $this->db->get_where('users', array('email' => urldecode($this->input->post('email'))));
+				if( urldecode($this->input->post('new_pass')) == urldecode($this->input->post('confirm_pass')) ) {
+					$result = $this->db->from('users')
+						->where('email', urldecode($this->input->post('email')))
+						->get()->result_array();
+
+					if (empty($result)) {
+						$response['error'] = 'No account associated with this email address.';
+					} else {
+						// $response['result'] = $result;
+						$password = md5($this->input->post('new_pass'));
+						$this->db->set('password', $password)
+								->where('email', $this->input->post('email'))
+								->update('users');
+						$response['status'] = true;
+					}
+				} else {
+					$response['error'] = 'Both password must match';
+
+				}
+			}
+			echo json_encode($response);
 		}
 }
