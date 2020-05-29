@@ -37,9 +37,9 @@
 					<label>Confirm Password</label>
 					<input type="password" class="form-control" name="password2" placeholder="Confirm Password">
 				</div>
-
+					<div class="g-recaptcha" data-sitekey="6LevEv0UAAAAAO06TY_hwLYNYJFgICoERoRAWF78"></div>
+					<br>
+					<button type="submit" class="btn btn-primary">Submit</button>
 			</div>
-		<div class="g-recaptcha" data-sitekey="6LevEv0UAAAAAO06TY_hwLYNYJFgICoERoRAWF78"></div>
-		<br>
-		<button type="submit" class="btn btn-primary">Submit</button>
+		
 <?php echo form_close(); ?>
