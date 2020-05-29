@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://localhost/studentCalender';
+$config['base_url'] = 'https://studentcalender.herokuapp.com/';
 //'http://localhost/studentCalender'
 //https://infs3202-3ca250d7.uqcloud.net/studentCalender
 /*
