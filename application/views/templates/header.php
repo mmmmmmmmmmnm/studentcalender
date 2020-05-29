@@ -20,7 +20,6 @@
 					<?php if($this->session->userdata('logged_in')) : ?>
 					<li><a href="<?php echo base_url(); ?>events">Your events</a></li>
 					<?php endif; ?>
-					<li><a href="<?php echo base_url(); ?>events/public">Public events</a></li>
 
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
