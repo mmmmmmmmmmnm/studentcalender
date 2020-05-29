@@ -8,7 +8,7 @@
 			<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
 			<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/style.css"/>
-			<script src="http://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+			<script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
 		</head>
 		<body>
 		<?php
